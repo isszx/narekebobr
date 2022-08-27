@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://narekebobr.by',
+	site: 'https://isszx.github.io', // 'https://narekebobr.by',
+	base: '/narekebobr',
 	integrations: [mdx(), sitemap()],
 });
