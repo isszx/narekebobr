@@ -1,11 +1,13 @@
 ---
-export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
+import astroConfig from '../../astro.config.mjs';
 
+export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
+const ROOT_PATH = `${astroConfig.base}${astroConfig.base === '/' ? '' : '/'}`;
 const { href, ...props } = Astro.props;
 ---
 
 <a class="logo" href={href} {...props}>
-	<img class="logo" src="/logo.svg" />
+	<img class="logo" src={`${ROOT_PATH}logo.svg`} />
 </a>
 
 <style>
