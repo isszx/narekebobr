@@ -1,0 +1,64 @@
+---
+// Import the global.css file here so that it is included on
+// all pages through the use of the <BaseHead /> component.
+import '../styles/global.css';
+
+import { LD_JSON } from '../config'
+
+export interface Props {
+	title: string;
+	description: string;
+	keywords: string;
+	image?: string;
+}
+const { title, description, keywords, image = '/placeholder-social.jpg' } = Astro.props;
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<meta name="theme-color" content="#287EFF">
+
+<!-- Icons -->
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/favicon-apple-touch-114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favicon-apple-touch-144.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favicon-apple-touch-114.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon-apple-touch-144.png">
+<link rel="icon" type="image/vnd.microsoft.icon" sizes="32x32 48x48" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" sizes="128x128" href="/favicon.icns">
+<link rel="icon" type="image/x-icon" href="/favicon.png">
+
+<!-- Verify Metadata -->
+<meta name="yandex-verification" content="87752e85ab47bb4a" />
+<meta name="google-site-verification" content="Xmer3xqdJYNbt1kfdSx8WJ3OaXP65MPrFoxJw-oPYuI" />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- LD -->
+<script type="application/ld+json" set:html={LD_JSON}></script>

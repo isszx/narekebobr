@@ -1,0 +1,190 @@
+---
+import { IconLeft, IconRight } from '../assets';
+import { IMG_IDX } from '../config';
+---
+<div id="photos" class="photos" data-last="50" data-first="1" data-current="1">
+    <div class="photos__view">
+        <div class="photos__left">
+            <img src={IconLeft} />
+        </div>
+        <div class="photos__right">
+            <img src={IconRight} />
+        </div>
+        <picture>
+            <source class="p_webp" srcset="/nw/01.webp" type="image/webp" />
+            <source class="p_jpg" srcset="/n/01.jpg" type="image/jpeg" />
+            <img class="p_img" src="/n/01.jpg" />
+        </picture>
+    </div>
+
+    <div class="photos__control">
+        {IMG_IDX.map((index) => (
+            <picture data-index={Number(index)}>
+                <source srcset={`/mw/${index}.webp`} type="image/webp" />
+                <source srcset={`/m/${index}.jpg`} type="image/jpeg" />
+                <img data-index={Number(index)} src={`/m/${index}.jpg`} />
+            </picture>
+        ))}
+    </div>
+</div>
+
+<script is:raw>
+function getProps() {
+    const main = document.getElementById('photos');
+    const last = Number(main.dataset.last);
+    const first = Number(main.dataset.first);
+    const current = Number(main.dataset.current);
+    const viewWebp = document.querySelector('#photos .photos__view .p_webp');
+    const viewJpg = document.querySelector('#photos .photos__view .p_jpg');
+    const viewImg = document.querySelector('#photos .photos__view .p_img');
+
+    function getImgPath(index, webp) {
+        console.log('getImgPath', index, webp);
+        let idx = index;
+        if (index < 10) {
+            idx = `0${index}`;
+        }
+        let w = Boolean(webp);
+        return `/n${w ? 'w' : ''}/${idx}.${w ? 'webp' : 'jpg'}`;
+    }
+
+    function setImage(index) {
+        viewJpg.srcset = getImgPath(index);
+        viewWebp.srcset = getImgPath(index, true);
+        viewImg.src = getImgPath(index);
+
+        main.dataset.current = index;
+    }
+    return {
+        main,
+        last,
+        first,
+        current,
+        viewWebp,
+        viewJpg,
+        viewImg,
+        getImgPath,
+        setImage,
+    };
+}
+
+function nextImageHandler() {
+    const props = getProps();
+    if (props.current !== props.first) {
+        props.setImage(props.current - 1);
+    } else {
+        props.setImage(props.last);
+    }
+}
+
+function prevImageHandler() {
+    const props = getProps();
+    if (props.current !== props.last) {
+        props.setImage(props.current + 1);
+    } else {
+        props.setImage(props.first);
+    }
+}
+
+function pickImageHandler(event) {
+    const props = getProps();
+    const index = Number(event.target.dataset.index);
+    props.setImage(index);
+}
+
+window.addEventListener('load', function() {
+    console.log('loaded');
+    const prevButton = document.querySelector('#photos .photos__left');
+    const nextButton = document.querySelector('#photos .photos__right');
+    const thumbs = document.querySelectorAll('#photos .photos__control picture');
+    prevButton.addEventListener('click', nextImageHandler);
+    nextButton.addEventListener('click', prevImageHandler);
+    thumbs.forEach((item) => {
+        item.addEventListener('click', pickImageHandler);
+    });
+});
+window.addEventListener('unload', function() {
+    const prevButton = document.querySelector('#photos .photos__left');
+    const nextButton = document.querySelector('#photos .photos__right');
+    const thumbs = document.querySelectorAll('#photos .photos__control picture');
+    prevButton.removeEventListener('click', nextImageHandler);
+    nextButton.removeEventListener('click', prevImageHandler);
+    thumbs.forEach((item) => {
+        item.removeEventListener('click', pickImageHandler);
+    });
+});
+</script>
+
+<style>
+    .photos {
+        margin-bottom: 30px;
+    }
+    .photos__view {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        position: relative;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    .photos__view picture, .photos__view img {
+        max-width: 100%;
+        max-height: 600px;
+    }
+    .photos__left, .photos__right {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 30%;
+        z-index: 5;
+        cursor: pointer;
+        user-select: none;
+        opacity: 0;
+        display: flex;
+        transition: all 0.25s ease-in-out;
+    }
+    .photos__left:hover, .photos__right:hover {
+        opacity: 1;
+    }
+    .photos__left img, .photos__right img {
+        cursor: pointer;
+        user-select: none;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .photos__left {
+        left: 0;
+        background: linear-gradient(to right, #232429, rgba(35, 36, 41, 0));
+    }
+    .photos__left img {
+        margin-left: 10px;
+        margin-right: auto;
+    }
+    .photos__right {
+        right: 0;
+        background: linear-gradient(to right, rgba(35, 36, 41, 0), #232429);
+    }
+    .photos__right img {
+        margin-left: auto;
+        margin-right: 10px;
+    }
+    .photos__control {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        max-width: 100%;
+        margin-top: 10px;
+    }
+    .photos__control picture, .photos__control img {
+        cursor: pointer;
+        user-select: none;
+    }
+    .photos__control img {
+        height: 60px;
+        margin: 0 5px;
+        border-radius: 5px;
+    }
+</style>

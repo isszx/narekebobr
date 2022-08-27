@@ -1,0 +1,16 @@
+---
+export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
+
+const { href, ...props } = Astro.props;
+---
+
+<a class="logo" href={href} {...props}>
+	<img class="logo" src="/logo.svg" />
+</a>
+
+<style>
+	.logo {
+		cursor: pointer;
+		user-select: none;
+	}
+</style>

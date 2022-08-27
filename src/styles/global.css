@@ -1,0 +1,136 @@
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+:root {
+	--color-primary: #287EFF;
+	--color-primary-hover: rgba(40, 126, 255, 0.6);
+	--color-white: #ffffff;
+	--color-background: #232429;
+	--color-gray: #9BA3B1;
+	--font-family: 'Comfortaa', Verdana, sans-serif;
+
+	font-family: var(--font-family);
+	color: var(--color-white);
+	font-size: 16px;
+}
+
+::-webkit-scrollbar {
+	-webkit-appearance: none;
+	width: 7px;
+	height: 7px;
+	background: #232429;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background-color: rgba(40, 126, 255, 0.5);
+	box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+html {
+	margin: 0;
+	padding: 0;
+	background: #232429
+}
+
+*, *::after, *::before {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: var(--font-family);
+	margin: 0 auto;
+	max-width: 954px;
+	padding: 0 15px;
+	text-align: left;
+	background-color: var(--color-background);
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	color: var(--color-white);
+}
+
+a {
+	color: var(--color-white)
+}
+
+p {
+	margin-top: 0;
+}
+p.text-h {
+	font-family: var(--font-family);
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 130%;
+	color: var(--color-white);
+	margin-bottom: 15px;
+}
+p.text-p, .text-p li {
+	font-family: var(--font-family);
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 130%;
+	color: var(--color-gray);
+}
+ul {
+	margin-top: 0;
+	padding-left: 25px;
+}
+.text-p li {
+	margin-bottom: 8px;
+	line-height: 140%;
+}
+
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b {
+	color: #222;
+} */
+/* a {
+	color: #3273dc;
+}
+nav a {
+	margin-right: 10px;
+} */
+/* textarea {
+	width: 100%;
+	font-size: 16px;
+}
+input {
+	font-size: 16px;
+}
+content {
+	line-height: 1.6;
+}
+table {
+	width: 100%;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+code {
+	padding: 2px 5px;
+	background-color: #ff3bff;
+}
+pre {
+	padding: 1rem;
+}
+pre > code {
+	all: unset;
+}
+blockquote {
+	border: 1px solid rgb(255, 83, 83);
+	color: #222;
+	padding: 2px 0px 2px 20px;
+	margin: 0px;
+	font-style: italic;
+} */

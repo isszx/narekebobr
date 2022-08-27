@@ -1,0 +1,27 @@
+<div id="metrik">
+    <!--LiveInternet counter-->
+    <script type="text/javascript">
+        document.write("<a href='//www.liveinternet.ru/click' target=_blank><img src='//counter.yadro.ru/hit?t16.6;r"+escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random()+"' alt='' title='LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня' border='0' width='88' height='31'><\/a>")
+    </script>
+    <!--/LiveInternet-->
+</div>
+
+<script is:inline src="/metrik.js"></script>
+
+<style>
+    #metrik {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 10px 0;
+    }
+    #metrik a {
+        display: flex;
+        margin: 0 15px;
+    }
+    #metrik img {
+        max-height: 31px !important;
+    }
+</style>

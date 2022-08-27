@@ -1,0 +1,79 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import Logotype from './Logotype.astro';
+
+import { SITE_TITLE_1, SITE_TITLE_2 } from '../config';
+---
+
+<header>
+	<div class="nav">
+		<Logotype />
+		<nav>
+			<HeaderLink href="/#contacts">Контакты</HeaderLink>
+			<HeaderLink href="/#about">Описание</HeaderLink>
+			<HeaderLink href="/#photos">Фото</HeaderLink>
+
+			<!-- <HeaderLink href="/blog">Blog</HeaderLink>
+			<HeaderLink href="/about">About</HeaderLink>
+			<HeaderLink href="https://twitter.com/astrodotbuild" target="_blank">Twitter</HeaderLink>
+			<HeaderLink href="https://github.com/withastro/astro" target="_blank">GitHub</HeaderLink> -->
+		</nav>
+	</div>
+
+	<div class="head">
+		<h1>
+			<span>{SITE_TITLE_1}</span>
+			<span>{SITE_TITLE_2}</span>
+		</h1>
+		<div>
+			Приезжайте всей семьёй или&nbsp;дружной компанией, вдвоём или&nbsp;в&nbsp;гордом одиночестве. Мы&nbsp;вам всегда рады.
+		</div>
+	</div>
+</header>
+
+<style>
+	header {
+		display: flex;
+		flex-direction: column;
+		background-image: url('/head.png');
+		background-size: 600px;
+		background-position: right top;
+		background-repeat: no-repeat;
+	}
+	.nav {
+		display: flex;
+		align-items: center;
+		margin-top: 20px;
+	}
+	.head {
+		margin-top: 90px;
+		margin-bottom: 155px;
+	}
+	.head div {
+		color: var(--color-gray);
+		width: 300px;
+		font-size: 14px;
+		line-height: 130%;
+	}
+	nav {
+		display: flex;
+		flex-direction: row;
+		margin-left: auto;
+	}
+	h1 {
+		color: var(--color-white);
+		display: flex;
+		flex-direction: column;
+	}
+	h1 span:first-of-type {
+		font-weight: 400;
+		font-size: 36px;
+		line-height: 40px;
+	}
+	h1 span:last-child {
+		font-weight: 700;
+		font-size: 64px;
+		line-height: 71px;
+		margin-top: 10px;
+	}
+</style>
