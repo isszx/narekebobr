@@ -11,6 +11,8 @@ import Metrik from '../components/Metrik.astro';
 import Photos from '../components/Photos.astro';
 
 import { TITLE, DESCRIPTION, KEYWORDS } from '../config';
+import astroConfig from '../../astro.config.mjs';
+const ROOT_PATH = `${astroConfig.base}${astroConfig.base === '/' ? '' : '/'}`;
 ---
 
 <!DOCTYPE html>

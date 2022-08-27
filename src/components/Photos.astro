@@ -1,6 +1,9 @@
 ---
+import astroConfig from '../../astro.config.mjs';
 import { IconLeft, IconRight } from '../assets';
 import { IMG_IDX } from '../config';
+
+const ROOT_PATH = `${astroConfig.base}${astroConfig.base === '/' ? '' : '/'}`;
 ---
 <div id="photos" class="photos" data-last="50" data-first="1" data-current="1">
     <div class="photos__view">
@@ -11,24 +14,25 @@ import { IMG_IDX } from '../config';
             <img src={IconRight} />
         </div>
         <picture>
-            <source class="p_webp" srcset="/nw/01.webp" type="image/webp" />
-            <source class="p_jpg" srcset="/n/01.jpg" type="image/jpeg" />
-            <img class="p_img" src="/n/01.jpg" />
+            <source class="p_webp" srcset={`${ROOT_PATH}nw/01.webp`} type="image/webp" />
+            <source class="p_jpg" srcset={`${ROOT_PATH}n/01.jpg`} type="image/jpeg" />
+            <img class="p_img" src={`${ROOT_PATH}n/01.jpg`} />
         </picture>
     </div>
 
     <div class="photos__control">
         {IMG_IDX.map((index) => (
             <picture data-index={Number(index)}>
-                <source srcset={`/mw/${index}.webp`} type="image/webp" />
-                <source srcset={`/m/${index}.jpg`} type="image/jpeg" />
-                <img data-index={Number(index)} src={`/m/${index}.jpg`} />
+                <source srcset={`${ROOT_PATH}mw/${index}.webp`} type="image/webp" />
+                <source srcset={`${ROOT_PATH}m/${index}.jpg`} type="image/jpeg" />
+                <img data-index={Number(index)} src={`${ROOT_PATH}m/${index}.jpg`} />
             </picture>
         ))}
     </div>
 </div>
 
 <script is:raw>
+const rootPath = ROOT_PATH;
 function getProps() {
     const main = document.getElementById('photos');
     const last = Number(main.dataset.last);
@@ -45,7 +49,7 @@ function getProps() {
             idx = `0${index}`;
         }
         let w = Boolean(webp);
-        return `/n${w ? 'w' : ''}/${idx}.${w ? 'webp' : 'jpg'}`;
+        return `${rootPath}n${w ? 'w' : ''}/${idx}.${w ? 'webp' : 'jpg'}`;
     }
 
     function setImage(index) {
