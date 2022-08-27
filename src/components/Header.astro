@@ -1,19 +1,16 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import Logotype from './Logotype.astro';
-
-import astroConfig from '../../astro.config.mjs';
-import { SITE_TITLE_1, SITE_TITLE_2 } from '../config';
-const ROOT_PATH = `${astroConfig.base}${astroConfig.base === '/' ? '' : '/'}`;
+import { ROOT_PATH, SITE_TITLE_1, SITE_TITLE_2 } from '../config';
 ---
 
 <header>
 	<div class="nav">
 		<Logotype href={ROOT_PATH} />
 		<nav>
-			<HeaderLink href={`${ROOT_PATH}#contacts`}>Контакты</HeaderLink>
-			<HeaderLink href={`${ROOT_PATH}#about`}>Описание</HeaderLink>
-			<HeaderLink href={`${ROOT_PATH}#photos`}>Фото</HeaderLink>
+			<HeaderLink href="#contacts">Контакты</HeaderLink>
+			<HeaderLink href="#about">Описание</HeaderLink>
+			<HeaderLink href="#photos">Фото</HeaderLink>
 
 			<!-- <HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>

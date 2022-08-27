@@ -4,7 +4,6 @@
 import '../styles/global.css';
 
 import { LD_JSON } from '../config'
-import astroConfig from '../../astro.config.mjs';
 
 export interface Props {
 	title: string;
@@ -12,9 +11,7 @@ export interface Props {
 	keywords: string;
 	image?: string;
 }
-const { title, description, keywords, image = '/placeholder-social.jpg' } = Astro.props;
-
-const ROOT_PATH = `${astroConfig.base}${astroConfig.base === '/' ? '' : '/'}`;
+const { title, description, keywords, image = 'placeholder-social.jpg' } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -24,15 +21,15 @@ const ROOT_PATH = `${astroConfig.base}${astroConfig.base === '/' ? '' : '/'}`;
 <meta name="theme-color" content="#287EFF">
 
 <!-- Icons -->
-<link rel="apple-touch-icon-precomposed" sizes="57x57" href={`${ROOT_PATH}favicon-apple-touch-114.png`}>
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href={`${ROOT_PATH}favicon-apple-touch-144.png`}>
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href={`${ROOT_PATH}favicon-apple-touch-114.png`}>
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href={`${ROOT_PATH}favicon-apple-touch-144.png`}>
-<link rel="icon" type="image/vnd.microsoft.icon" sizes="32x32 48x48" href={`${ROOT_PATH}favicon.ico`}>
-<link rel="icon" type="image/svg+xml" href={`${ROOT_PATH}favicon.svg`} />
-<link rel="shortcut icon" href={`${ROOT_PATH}favicon.ico`}>
-<link rel="icon" sizes="128x128" href={`${ROOT_PATH}favicon.icns`}>
-<link rel="icon" type="image/x-icon" href={`${ROOT_PATH}favicon.png`}>
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon-apple-touch-114.png" >
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon-apple-touch-144.png" >
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon-apple-touch-114.png" >
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon-apple-touch-144.png" >
+<link rel="icon" type="image/vnd.microsoft.icon" sizes="32x32 48x48" href="favicon.ico" >
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="shortcut icon" href="favicon.ico" >
+<link rel="icon" sizes="128x128" href="favicon.icns" >
+<link rel="icon" type="image/x-icon" href="favicon.png" >
 
 <!-- Verify Metadata -->
 <meta name="yandex-verification" content="87752e85ab47bb4a" />
