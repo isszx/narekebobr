@@ -12,14 +12,17 @@ const isActive = href === Astro.url.pathname;
 	a {
 		display: inline-block;
 		text-decoration: none;
-		color: var(--color-white);
+		color: var(--color-text-header);
 		font-family: var(--font-family);
 		font-style: normal;
 		font-weight: 700;
 		font-size: 14px;
 		line-height: 16px;
-		margin: 0 25px;
+		margin: 0 15px;
 		transition: all 0.25s ease-in-out;
+	}
+	a:last-child {
+		margin-right: 0;
 	}
 	a:hover {
 		color: var(--color-primary);

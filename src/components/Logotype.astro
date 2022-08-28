@@ -1,15 +1,18 @@
 ---
+import Logo from './icons/Logo.astro';
+
 export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
 const { href, ...props } = Astro.props;
 ---
 
 <a class="logo" href={href} {...props}>
-	<img class="logo" src="logo.svg" />
+  <Logo class="logo" />
 </a>
 
 <style>
-	.logo {
-		cursor: pointer;
-		user-select: none;
-	}
+  .logo {
+    cursor: pointer;
+    user-select: none;
+    color: var(--color-text-header);
+  }
 </style>

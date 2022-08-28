@@ -1,10 +1,11 @@
 ---
 import { CONTACTS } from '../config';
 ---
+
 <div class="contacts" id="contacts">
-    {CONTACTS.map(({ iconUrl, link, title, text }) => (
+    {CONTACTS.map(({ Icon, link, title, text }) => (
         <a class="contacts__item" href={link} title={title} target="_blank">
-            <img src={iconUrl} />
+            <Icon />
             {text}
         </a>
     ))}
@@ -26,7 +27,7 @@ import { CONTACTS } from '../config';
     align-items: center;
     cursor: pointer;
     user-select: none;
-    color: var(--color-gray);
+    color: var(--color-text-pharagraph);
     font-family: var(--font-family);
     font-style: normal;
     font-weight: 700;
@@ -34,15 +35,16 @@ import { CONTACTS } from '../config';
     line-height: 20px;
     margin: 12px 25px;
     text-decoration: none;
-    transition: all 0.25s ease-in-out;
 }
 .contacts__item:hover {
     color: var(--color-primary);
 }
 
-.contacts__item img {
+.contacts__item svg {
     cursor: pointer;
     user-select: none;
     margin-right: 10px;
+    background-color: var(--icon-background);
+    border-radius: 8px;
 }
 </style>

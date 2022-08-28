@@ -1,3 +1,19 @@
 <div id="booking" />
 
-<script is:inline src="booking.js"></script>
+<script is:raw>
+function Booking() {
+  var node = document.getElementById('booking');
+  node.innerHTML = '';
+  var randomId = Math.floor(Math.random() * 100000);
+  var targetElemId = 'bcom_rwidget_' + randomId;
+  var div = document.createElement('div');
+  div.setAttribute('id', targetElemId);
+  node.appendChild(div);
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.async = true;
+  script.src = '//www.booking.com/review_widget/by/usadba-na-reke-bobr.ru.html?tmpl=review_widget/review_widget&wid=' + targetElemId + '&wtype=box_big&hotel_id=886374&widget_language=ru';
+  node.appendChild(script);
+}
+Booking();
+</script>

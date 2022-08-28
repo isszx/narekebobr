@@ -1,0 +1,47 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import Logotype from './Logotype.astro';
+import ThemeToggle from './ThemeToggle.astro';
+
+import { ROOT_PATH } from '../config';
+---
+
+<div class="nav">
+    <div class="nav__container">
+        <Logotype href={ROOT_PATH} />
+        <nav>
+            <HeaderLink href="#contacts">Контакты</HeaderLink>
+            <HeaderLink href="#about">Описание</HeaderLink>
+            <HeaderLink href="#photos">Фото</HeaderLink>
+            <ThemeToggle />
+        </nav>
+    </div>
+</div>
+
+<style>
+.nav {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-background);
+    box-shadow: var(--header-shadow);
+    z-index: var(--z-header);
+}
+.nav__container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 10px auto;
+    padding: 0 25px;
+}
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+}
+</style>

@@ -1,0 +1,9 @@
+---
+export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
+
+const { class: className } = Astro.props;
+---
+
+<svg class:list={[className]} width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M33.2322 24.8987C34.2085 23.9224 35.7915 23.9224 36.7678 24.8987L50.1011 38.2321C51.0774 39.2084 51.0774 40.7913 50.1011 41.7676L36.7678 55.1009C35.7915 56.0772 34.2085 56.0772 33.2322 55.1009C32.2559 54.1246 32.2559 52.5417 33.2322 51.5654L44.7978 39.9998L33.2322 28.4343C32.2559 27.458 32.2559 25.875 33.2322 24.8987Z" fill="currentColor"/>
+</svg>

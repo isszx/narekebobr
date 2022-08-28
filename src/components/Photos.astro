@@ -1,14 +1,16 @@
 ---
-import { IconLeft, IconRight } from '../assets';
+import IconRight from './icons/IconRight.astro';
+import IconLeft from './icons/IconLeft.astro';
+
 import { IMG_IDX } from '../config';
 ---
-<div id="photos" class="photos" data-last="50" data-first="1" data-current="1">
+<div id="photos" class="photos" data-last={IMG_IDX.length} data-first="1" data-current="1">
     <div class="photos__view">
         <div class="photos__left">
-            <img src={IconLeft} />
+            <IconLeft />
         </div>
         <div class="photos__right">
-            <img src={IconRight} />
+            <IconRight />
         </div>
         <picture>
             <source class="p_webp" srcset="nw/01.webp" type="image/webp" />
@@ -121,7 +123,7 @@ window.addEventListener('unload', function() {
     }
     .photos__view {
         width: 100%;
-        background: rgba(255, 255, 255, 0.1);
+        background: var(--view-background);
         border-radius: 10px;
         position: relative;
         height: 600px;
@@ -144,30 +146,30 @@ window.addEventListener('unload', function() {
         user-select: none;
         opacity: 0;
         display: flex;
-        transition: all 0.25s ease-in-out;
+        color: var(--color-text-header);
     }
     .photos__left:hover, .photos__right:hover {
         opacity: 1;
     }
-    .photos__left img, .photos__right img {
+    .photos__left svg, .photos__right svg {
         cursor: pointer;
         user-select: none;
         margin-top: auto;
         margin-bottom: auto;
     }
     .photos__left {
-        left: 0;
-        background: linear-gradient(to right, #232429, rgba(35, 36, 41, 0));
+        left: -2px;
+        background: linear-gradient(to right, var(--color-background), rgba(35, 36, 41, 0));
     }
-    .photos__left img {
+    .photos__left svg {
         margin-left: 10px;
         margin-right: auto;
     }
     .photos__right {
-        right: 0;
-        background: linear-gradient(to right, rgba(35, 36, 41, 0), #232429);
+        right: -2px;
+        background: linear-gradient(to right, rgba(35, 36, 41, 0), var(--color-background));
     }
-    .photos__right img {
+    .photos__right svg {
         margin-left: auto;
         margin-right: 10px;
     }
@@ -183,8 +185,29 @@ window.addEventListener('unload', function() {
         user-select: none;
     }
     .photos__control img {
+        display: block;
+        object-fit: cover;
+        max-width: 100px;
+        object-position: center;
+    }
+    .photos__control picture {
+        border-radius: 8px;
+        width: 100px;
+        min-width: 100px;
+        max-width: 100px;
         height: 60px;
-        margin: 0 5px;
-        border-radius: 5px;
+        min-height: 60px;
+        max-height: 60px;
+        margin: 0 10px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .photos__control picture:first-child {
+        margin-left: 0;
+    }
+    .photos__control picture:last-child {
+        margin-right: 0;
     }
 </style>

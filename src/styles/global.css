@@ -4,76 +4,102 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 :root {
-	--color-primary: #287EFF;
 	--color-primary-hover: rgba(40, 126, 255, 0.6);
-	--color-white: #ffffff;
-	--color-background: #232429;
-	--color-gray: #9BA3B1;
+
 	--font-family: 'Comfortaa', Verdana, sans-serif;
+	--max-width: 940px;
+	--z-header: 1000;
 
 	font-family: var(--font-family);
-	color: var(--color-white);
+	color: var(--color-text-header);
 	font-size: 16px;
+}
+html[data-theme="dark"] {
+	--color-primary: #287EFF;
+	--color-text-header: #FFFFFF;
+	--color-text-pharagraph: #9BA3B1;
+	--color-background: #232429;
+	--header-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+	--view-background: rgba(255, 255, 255, 0.1);
+	--icon-background: rgba(255, 255, 255, 0.1);
+}
+html[data-theme="light"] {
+	--color-primary: #287EFF;
+	--color-text-header: #000000;
+	--color-text-pharagraph: #2F4B5F;
+	--color-background: #FFFFFF;
+	--header-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+	--view-background: rgba(0, 0, 0, 0.1);
+	--icon-background: rgba(0, 0, 0, 0.1);
+}
+
+/* Booking hard rewrite style */
+html[data-theme="light"] body #bcom_review_widget #bcom_review_widget_wrapper .hreview-vertical .url {
+	background: #E4E4E4 !important;
+}
+html #bcom_review_widget #bcom_review_widget_wrapper .hreview-vertical .summary {
+	color: #FFFFFF !important;
 }
 
 ::-webkit-scrollbar {
 	-webkit-appearance: none;
 	width: 7px;
 	height: 7px;
-	background: #232429;
+	background: var(--color-background);
 }
 
 ::-webkit-scrollbar-thumb {
 	border-radius: 4px;
-	background-color: rgba(40, 126, 255, 0.5);
-	box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+	background-color: var(--color-primary-hover);
+	box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 html {
 	margin: 0;
 	padding: 0;
-	background: #232429
+	background: var(--color-background);
 }
 
 *, *::after, *::before {
 	box-sizing: border-box;
+	transition: all 0.25s ease-in-out;
 }
 
 body {
 	font-family: var(--font-family);
 	margin: 0 auto;
-	max-width: 954px;
-	padding: 0 15px;
+	max-width: var(--max-width);
+	padding: 0 25px;
 	text-align: left;
 	background-color: var(--color-background);
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: var(--color-white);
+	color: var(--color-text-header);
 }
 
 a {
-	color: var(--color-white)
+	font-family: var(--font-family);
+	color: var(--color-text-header);
 }
 
 p {
+	font-family: var(--font-family);
 	margin-top: 0;
 }
 p.text-h {
-	font-family: var(--font-family);
 	font-style: normal;
 	font-weight: 700;
 	font-size: 24px;
 	line-height: 130%;
-	color: var(--color-white);
+	color: var(--color-text-header);
 	margin-bottom: 15px;
 }
 p.text-p, .text-p li {
-	font-family: var(--font-family);
 	font-style: normal;
 	font-weight: 700;
 	font-size: 16px;
 	line-height: 130%;
-	color: var(--color-gray);
+	color: var(--color-text-pharagraph);
 }
 ul {
 	margin-top: 0;
@@ -83,54 +109,3 @@ ul {
 	margin-bottom: 8px;
 	line-height: 140%;
 }
-
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong,
-b {
-	color: #222;
-} */
-/* a {
-	color: #3273dc;
-}
-nav a {
-	margin-right: 10px;
-} */
-/* textarea {
-	width: 100%;
-	font-size: 16px;
-}
-input {
-	font-size: 16px;
-}
-content {
-	line-height: 1.6;
-}
-table {
-	width: 100%;
-}
-img {
-	max-width: 100%;
-	height: auto;
-}
-code {
-	padding: 2px 5px;
-	background-color: #ff3bff;
-}
-pre {
-	padding: 1rem;
-}
-pre > code {
-	all: unset;
-}
-blockquote {
-	border: 1px solid rgb(255, 83, 83);
-	color: #222;
-	padding: 2px 0px 2px 20px;
-	margin: 0px;
-	font-style: italic;
-} */

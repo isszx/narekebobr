@@ -1,7 +1,12 @@
 // Place any global data in this file.
 // You can import this data from anywhere in your site by using the `import` keyword.
-
-import { IconA1, IconLife, IconMail, IconTelegram, IconViber, IconVk, IconWhatsapp } from './assets';
+import IconA1 from './components/icons/IconA1.astro';
+import IconLife from './components/icons/IconLife.astro';
+import IconMail from './components/icons/IconMail.astro';
+import IconWhatsapp from './components/icons/IconWhatsapp.astro';
+import IconTelegram from './components/icons/IconTelegram.astro';
+import IconViber from './components/icons/IconViber.astro';
+import IconVk from './components/icons/IconVk.astro';
 
 export const SITE_TITLE_1 = 'Усадьба';
 export const SITE_TITLE_2 = 'На реке Бобр';
@@ -20,50 +25,50 @@ export const IMG_IDX = [
 ];
 
 interface Link {
-    iconUrl: string;
+    Icon: any;
     link: string;
     title: string;
     text: string;
 }
 
 const phoneLife: Link = {
-    iconUrl: IconLife,
+    Icon: IconLife,
     link: 'tel:+375256277120',
     title: 'Позвонить оператор Life',
     text: '+375 25 627-71-20',
 };
 const phoneA1: Link = {
-    iconUrl: IconA1,
+    Icon: IconA1,
     link: 'tel:+375447657861',
     title: 'Позвонить оператор A1',
     text: '+375 44 765-78-61',
 };
 const email: Link = {
-    iconUrl: IconMail,
+    Icon: IconMail,
     link: 'mailto:belare@mail.ru',
     title: 'Написать на почту',
     text: 'belare@mail.ru',
 };
 const whatsApp: Link = {
-    iconUrl: IconWhatsapp,
+    Icon: IconWhatsapp,
     link: 'whatsapp://send?phone=375447657861',
     title: 'Отправить сообщение в WhatsApp',
     text: 'WhatsApp',
 };
 const telegram: Link = {
-    iconUrl: IconTelegram,
+    Icon: IconTelegram,
     link: 'tg://resolve?domain=narekebobr',
     title: 'Отправить сообщение в Telegram',
     text: 'Telegram',
 };
 const viber: Link = {
-    iconUrl: IconViber,
+    Icon: IconViber,
     link: 'viber://chat?number=375447657861',
     title: 'Отправить сообщение в Viber',
     text: 'Viber',
 };
 const vk: Link = {
-    iconUrl: IconVk,
+    Icon: IconVk,
     link: 'vk://vk.com/narekebobr',
     title: 'Отправить сообщение в VK',
     text: 'VK',

@@ -29,9 +29,12 @@ function GoogleUA() {
   script.text = GoogleUA;
   document.querySelector('#metrik').appendChild(script);
 }
-
-window.onload = () => {
+function loadMetrik() {
   YandexMetrikaInformer();
   YandexMetrikaCounter();
   GoogleUA();
-};
+}
+window.addEventListener('load', loadMetrik);
+window.addEventListener('unload', () => {
+  window.removeEventListener('load', loadMetrik);
+});
