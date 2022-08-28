@@ -41,7 +41,6 @@ function getProps() {
     const viewImg = document.querySelector('#photos .photos__view .p_img');
 
     function getImgPath(index, webp) {
-        console.log('getImgPath', index, webp);
         let idx = index;
         if (index < 10) {
             idx = `0${index}`;
@@ -94,27 +93,29 @@ function pickImageHandler(event) {
     props.setImage(index);
 }
 
-window.addEventListener('load', function() {
-    console.log('loaded');
+function initPhotos() {
     const prevButton = document.querySelector('#photos .photos__left');
     const nextButton = document.querySelector('#photos .photos__right');
     const thumbs = document.querySelectorAll('#photos .photos__control picture');
-    prevButton.addEventListener('click', nextImageHandler);
-    nextButton.addEventListener('click', prevImageHandler);
+    prevButton.addEventListener('click', nextImageHandler, false);
+    nextButton.addEventListener('click', prevImageHandler, false);
     thumbs.forEach((item) => {
-        item.addEventListener('click', pickImageHandler);
+        item.addEventListener('click', pickImageHandler, false);
     });
-});
+}
+
+window.addEventListener('load', initPhotos, false);
 window.addEventListener('unload', function() {
+    window.removeEventListener('load', initPhotos, false);
     const prevButton = document.querySelector('#photos .photos__left');
     const nextButton = document.querySelector('#photos .photos__right');
     const thumbs = document.querySelectorAll('#photos .photos__control picture');
-    prevButton.removeEventListener('click', nextImageHandler);
-    nextButton.removeEventListener('click', prevImageHandler);
+    prevButton.removeEventListener('click', nextImageHandler, false);
+    nextButton.removeEventListener('click', prevImageHandler, false);
     thumbs.forEach((item) => {
-        item.removeEventListener('click', pickImageHandler);
+        item.removeEventListener('click', pickImageHandler, false);
     });
-});
+}, false);
 </script>
 
 <style>
@@ -209,5 +210,10 @@ window.addEventListener('unload', function() {
     }
     .photos__control picture:last-child {
         margin-right: 0;
+    }
+    @media (max-width: 420px) {
+        .photos__view {
+            height: 400px;
+        }
     }
 </style>

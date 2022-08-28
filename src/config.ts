@@ -45,9 +45,9 @@ const phoneA1: Link = {
 };
 const email: Link = {
     Icon: IconMail,
-    link: 'mailto:belare@mail.ru',
+    link: 'mailto:belare@list.ru',
     title: 'Написать на почту',
-    text: 'belare@mail.ru',
+    text: 'belare@list.ru',
 };
 const whatsApp: Link = {
     Icon: IconWhatsapp,

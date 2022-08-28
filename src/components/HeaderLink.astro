@@ -5,29 +5,34 @@ const { href, class: className, ...props } = Astro.props;
 const isActive = href === Astro.url.pathname;
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a href={href} class:list={['header-link', className, { active: isActive }]} {...props}>
 	<slot />
 </a>
 <style>
-	a {
-		display: inline-block;
-		text-decoration: none;
-		color: var(--color-text-header);
-		font-family: var(--font-family);
-		font-style: normal;
-		font-weight: 700;
-		font-size: 14px;
-		line-height: 16px;
-		margin: 0 15px;
-		transition: all 0.25s ease-in-out;
+a.header-link {
+	display: inline-block;
+	text-decoration: none;
+	color: var(--color-text-header);
+	font-family: var(--font-family);
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 16px;
+	margin: 0 15px;
+	transition: all 0.25s ease-in-out;
+}
+a.header-link:last-child {
+	margin-right: 0;
+}
+a.header-link:hover {
+	color: var(--color-primary);
+}
+a.header-link.active {
+	color: var(--color-primary);
+}
+@media (max-width: 420px) {
+	a.header-link {
+		margin: 0 5px;
 	}
-	a:last-child {
-		margin-right: 0;
-	}
-	a:hover {
-		color: var(--color-primary);
-	}
-	a.active {
-		color: var(--color-primary);
-	}
+}
 </style>

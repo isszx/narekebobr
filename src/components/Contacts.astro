@@ -6,7 +6,7 @@ import { CONTACTS } from '../config';
     {CONTACTS.map(({ Icon, link, title, text }) => (
         <a class="contacts__item" href={link} title={title} target="_blank">
             <Icon />
-            {text}
+            <span>{text}</span>
         </a>
     ))}
 </div>
@@ -46,5 +46,21 @@ import { CONTACTS } from '../config';
     margin-right: 10px;
     background-color: var(--icon-background);
     border-radius: 8px;
+}
+@media (max-width: 768px) {
+    .contacts {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .contacts__item svg {
+        margin-right: 0;
+    }
+    .contacts__item {
+        margin: 10px;
+    }
+    .contacts span {
+        display: none;
+    }
 }
 </style>
